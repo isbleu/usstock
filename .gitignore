@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 环境变量与密钥（只提交 .env.example）
+.env
+
+# 临时产物（demo 图、探针脚本、临时服务输出等）
+.tmp/
+.tmp_*.json
+console_log.txt
+
+# 同花顺自选股截图（个人投资偏好信息，不上传）
+screenshots/
+
+# 编辑器
+.vscode/

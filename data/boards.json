@@ -1,0 +1,1006 @@
+{
+  "boards": [
+    {
+      "id": "m8",
+      "name": "US M8",
+      "stocks": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "market": "US",
+          "reason": "AI算力GPU绝对龙头"
+        },
+        {
+          "symbol": "GOOGL",
+          "name": "谷歌",
+          "market": "US",
+          "reason": "自研TPU+Gemini，AI全栈巨头"
+        },
+        {
+          "symbol": "AAPL",
+          "name": "苹果",
+          "market": "US",
+          "reason": "消费电子生态，端侧AI入口"
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微软",
+          "market": "US",
+          "reason": "云+Copilot，OpenAI最大合作方"
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亚马逊",
+          "market": "US",
+          "reason": "AWS云龙头，自研AI芯片"
+        },
+        {
+          "symbol": "META",
+          "name": "Meta",
+          "market": "US",
+          "reason": "开源Llama模型，AI广告提效"
+        },
+        {
+          "symbol": "TSLA",
+          "name": "特斯拉",
+          "market": "US",
+          "reason": "电动车+FSD自动驾驶+机器人"
+        },
+        {
+          "symbol": "SPCX",
+          "name": "SpaceX",
+          "market": "US",
+          "reason": "星链+发射垄断，未上市股权"
+        }
+      ]
+    },
+    {
+      "id": "us-guang",
+      "name": "US 光通讯",
+      "stocks": [
+        {
+          "symbol": "AXTI",
+          "name": "",
+          "market": "US",
+          "reason": "磷化铟/砷化镓衬底龙头，光芯片上游材料"
+        },
+        {
+          "symbol": "AAOI",
+          "name": "",
+          "market": "US",
+          "reason": "数通光模块供应商，绑定北美云厂"
+        },
+        {
+          "symbol": "POET",
+          "name": "",
+          "market": "US",
+          "reason": "光子集成封装（光引擎）平台"
+        },
+        {
+          "symbol": "LITE",
+          "name": "",
+          "market": "US",
+          "reason": "光模块+激光器龙头，800G放量"
+        },
+        {
+          "symbol": "GLW",
+          "name": "康宁",
+          "market": "US",
+          "reason": "光纤光缆龙头，AI布线受益"
+        },
+        {
+          "symbol": "COHR",
+          "name": "",
+          "market": "US",
+          "reason": "光器件垂直整合，800G核心供应"
+        },
+        {
+          "symbol": "TSEM",
+          "name": "Tower半导体",
+          "market": "US",
+          "reason": "硅光特色工艺代工龙头"
+        },
+        {
+          "symbol": "GFS",
+          "name": "格芯",
+          "market": "US",
+          "reason": "格芯硅光代工平台"
+        }
+      ]
+    },
+    {
+      "id": "us-shebei",
+      "name": "US 半导体设备",
+      "stocks": [
+        {
+          "symbol": "TER",
+          "name": "",
+          "market": "US",
+          "reason": "半导体测试机龙头，AI芯片测试"
+        },
+        {
+          "symbol": "AMAT",
+          "name": "应用材料",
+          "market": "US",
+          "reason": "沉积/刻蚀设备龙头"
+        },
+        {
+          "symbol": "AMKR",
+          "name": "",
+          "market": "US",
+          "reason": "先进封装OSAT龙头"
+        },
+        {
+          "symbol": "KLAC",
+          "name": "科磊",
+          "market": "US",
+          "reason": "量测/过程控制设备垄断"
+        },
+        {
+          "symbol": "LRCX",
+          "name": "",
+          "market": "US",
+          "reason": "刻蚀设备龙头，存储扩产受益"
+        },
+        {
+          "symbol": "ASML",
+          "name": "阿斯麦",
+          "market": "US",
+          "reason": "EUV光刻机独家垄断"
+        }
+      ]
+    },
+    {
+      "id": "us-cunchu",
+      "name": "US 存储",
+      "stocks": [
+        {
+          "symbol": "SKHY",
+          "name": "SK海力士",
+          "market": "US",
+          "reason": "HBM内存龙头，英伟达主供"
+        },
+        {
+          "symbol": "SIMO",
+          "name": "慧荣",
+          "market": "US",
+          "reason": "NAND主控芯片龙头"
+        },
+        {
+          "symbol": "RMBS",
+          "name": "",
+          "market": "US",
+          "reason": "内存接口IP授权"
+        },
+        {
+          "symbol": "SNDK",
+          "name": "",
+          "market": "US",
+          "reason": "NAND闪存原厂（西数分拆）"
+        },
+        {
+          "symbol": "WDC",
+          "name": "西部数据",
+          "market": "US",
+          "reason": "HDD龙头，AI近线存储受益"
+        },
+        {
+          "symbol": "STX",
+          "name": "希捷",
+          "market": "US",
+          "reason": "HDD双雄，HAMR新技术"
+        },
+        {
+          "symbol": "MU",
+          "name": "美光",
+          "market": "US",
+          "reason": "DRAM+HBM原厂"
+        }
+      ]
+    },
+    {
+      "id": "us-gonglv",
+      "name": "US 功率芯片",
+      "stocks": [
+        {
+          "symbol": "IFNNY",
+          "name": "英飞凌",
+          "market": "OTC",
+          "reason": "功率半导体全球龙头(IGBT/SiC)"
+        },
+        {
+          "symbol": "IPWR",
+          "name": "",
+          "market": "US",
+          "reason": "固态断路器等新型功率器件"
+        },
+        {
+          "symbol": "VICR",
+          "name": "",
+          "market": "US",
+          "reason": "高密度电源模块，AI服务器供电"
+        },
+        {
+          "symbol": "AOSL",
+          "name": "AOS半导体",
+          "market": "US",
+          "reason": "功率MOSFET供应商"
+        },
+        {
+          "symbol": "POWI",
+          "name": "",
+          "market": "US",
+          "reason": "高压电源管理IC"
+        },
+        {
+          "symbol": "MPWR",
+          "name": "Monolithic Power Systems",
+          "market": "US",
+          "reason": "服务器电源管理芯片龙头"
+        },
+        {
+          "symbol": "ADI",
+          "name": "",
+          "market": "US",
+          "reason": "模拟芯片龙头(电源+信号链)"
+        },
+        {
+          "symbol": "TXN",
+          "name": "德州仪器",
+          "market": "US",
+          "reason": "模拟/电源管理巨头"
+        },
+        {
+          "symbol": "STM",
+          "name": "意法半导体",
+          "market": "US",
+          "reason": "SiC碳化硅功率主力"
+        },
+        {
+          "symbol": "NVTS",
+          "name": "Navitas Semiconductor",
+          "market": "US",
+          "reason": "GaN氮化镓功率芯片"
+        },
+        {
+          "symbol": "ON",
+          "name": "安森美",
+          "market": "US",
+          "reason": "SiC功率+车载电源"
+        },
+        {
+          "symbol": "WOLF",
+          "name": "",
+          "market": "US",
+          "reason": "SiC衬底/器件龙头"
+        }
+      ]
+    },
+    {
+      "id": "us-jianfeiyao",
+      "name": "US 减肥药",
+      "stocks": [
+        {
+          "symbol": "ARWR",
+          "name": "Arrowhead Pharmaceuticals",
+          "market": "US",
+          "reason": "RNAi减脂管线"
+        },
+        {
+          "symbol": "WST",
+          "name": "",
+          "market": "US",
+          "reason": "GLP-1注射包材组件龙头"
+        },
+        {
+          "symbol": "AMGN",
+          "name": "安进",
+          "market": "US",
+          "reason": "MariTide减重管线挑战者"
+        },
+        {
+          "symbol": "NVO",
+          "name": "诺和诺德",
+          "market": "US",
+          "reason": "司美格鲁肽开创者"
+        },
+        {
+          "symbol": "LLY",
+          "name": "礼来",
+          "market": "US",
+          "reason": "替尔泊肽双靶点龙头"
+        }
+      ]
+    },
+    {
+      "id": "us-weixing",
+      "name": "US 卫星通信",
+      "stocks": [
+        {
+          "symbol": "GILT",
+          "name": "",
+          "market": "US",
+          "reason": "卫星地面调制解调设备"
+        },
+        {
+          "symbol": "VSAT",
+          "name": "",
+          "market": "US",
+          "reason": "卫星宽带运营商"
+        },
+        {
+          "symbol": "IRDM",
+          "name": "铱星",
+          "market": "US",
+          "reason": "铱星低轨通信星座"
+        },
+        {
+          "symbol": "ECHO",
+          "name": "",
+          "market": "US",
+          "reason": "休斯网络母公司，卫星宽带"
+        },
+        {
+          "symbol": "TSAT",
+          "name": "",
+          "market": "US",
+          "reason": "Telesat低轨光速星座"
+        },
+        {
+          "symbol": "SATL",
+          "name": "",
+          "market": "US",
+          "reason": "卫星遥感影像星座"
+        }
+      ]
+    },
+    {
+      "id": "us-shiyou",
+      "name": "US 石油",
+      "stocks": [
+        {
+          "symbol": "PBR",
+          "name": "巴西石油",
+          "market": "US",
+          "reason": "巴西深海油龙头，高分红"
+        },
+        {
+          "symbol": "OXY",
+          "name": "西方石油",
+          "market": "US",
+          "reason": "页岩油+碳捕捉，巴菲特重仓"
+        },
+        {
+          "symbol": "COP",
+          "name": "康菲石油",
+          "market": "US",
+          "reason": "全球上游E&P龙头"
+        },
+        {
+          "symbol": "BP",
+          "name": "",
+          "market": "US",
+          "reason": "英国一体化石油巨头"
+        },
+        {
+          "symbol": "CVX",
+          "name": "雪佛龙",
+          "market": "US",
+          "reason": "美国一体化石油巨头"
+        }
+      ]
+    },
+    {
+      "id": "us-youyun",
+      "name": "US 油运",
+      "stocks": [
+        {
+          "symbol": "FRO",
+          "name": "",
+          "market": "US",
+          "reason": "VLCC油轮龙头"
+        },
+        {
+          "symbol": "DHT",
+          "name": "",
+          "market": "US",
+          "reason": "纯VLCC船队"
+        },
+        {
+          "symbol": "INSW",
+          "name": "",
+          "market": "US",
+          "reason": "原油+成品油综合船队"
+        },
+        {
+          "symbol": "BWET",
+          "name": "油轮ETF",
+          "market": "US",
+          "reason": "油轮股一篮子ETF"
+        }
+      ]
+    },
+    {
+      "id": "us-hangtian",
+      "name": "US 商业航天",
+      "stocks": [
+        {
+          "symbol": "SIDU",
+          "name": "",
+          "market": "US",
+          "reason": "小卫星制造与数据服务"
+        },
+        {
+          "symbol": "SPCE",
+          "name": "维珍银河",
+          "market": "US",
+          "reason": "亚轨道太空旅游"
+        },
+        {
+          "symbol": "KTOS",
+          "name": "",
+          "market": "US",
+          "reason": "国防无人系统+卫星地面"
+        },
+        {
+          "symbol": "GE",
+          "name": "GE航空航天",
+          "market": "US",
+          "reason": "航空发动机龙头"
+        },
+        {
+          "symbol": "LMT",
+          "name": "洛克希德·马丁",
+          "market": "US",
+          "reason": "军工航天总包龙头"
+        },
+        {
+          "symbol": "RKLB",
+          "name": "火箭实验室",
+          "market": "US",
+          "reason": "小型火箭+卫星制造"
+        },
+        {
+          "symbol": "HWM",
+          "name": "",
+          "market": "US",
+          "reason": "航空航天精密零部件"
+        },
+        {
+          "symbol": "ASTS",
+          "name": "",
+          "market": "US",
+          "reason": "手机直连卫星星座"
+        },
+        {
+          "symbol": "DXYZ",
+          "name": "",
+          "market": "US",
+          "reason": "持有SpaceX等股权的基金"
+        },
+        {
+          "symbol": "FLY",
+          "name": "萤火虫航天",
+          "market": "US",
+          "reason": "火箭发射+月球着陆器，2025年热门航天新股"
+        },
+        {
+          "symbol": "LUNR",
+          "name": "",
+          "market": "US",
+          "reason": "月球着陆器，商业登月第一股"
+        }
+      ]
+    },
+    {
+      "id": "us-taiyangneng",
+      "name": "US 太阳能",
+      "stocks": [
+        {
+          "symbol": "ENPH",
+          "name": "",
+          "market": "US",
+          "reason": "微型逆变器龙头"
+        },
+        {
+          "symbol": "CSIQ",
+          "name": "阿特斯",
+          "market": "US",
+          "reason": "组件+储能（阿特斯）"
+        },
+        {
+          "symbol": "JKS",
+          "name": "晶科能源",
+          "market": "US",
+          "reason": "组件出货龙头（晶科）"
+        },
+        {
+          "symbol": "RUN",
+          "name": "",
+          "market": "US",
+          "reason": "美国户用光伏龙头"
+        },
+        {
+          "symbol": "FSLR",
+          "name": "第一太阳能",
+          "market": "US",
+          "reason": "薄膜组件龙头，本土制造"
+        },
+        {
+          "symbol": "SEDG",
+          "name": "",
+          "market": "US",
+          "reason": "逆变器+功率优化器"
+        }
+      ]
+    },
+    {
+      "id": "us-lidian",
+      "name": "US 锂电池",
+      "stocks": [
+        {
+          "symbol": "ALB",
+          "name": "雅保",
+          "market": "US",
+          "reason": "锂盐龙头（雅保）"
+        },
+        {
+          "symbol": "LAR",
+          "name": "",
+          "market": "US",
+          "reason": "阿根廷盐湖提锂"
+        },
+        {
+          "symbol": "SQM",
+          "name": "",
+          "market": "US",
+          "reason": "智利盐湖锂巨头"
+        },
+        {
+          "symbol": "SLI",
+          "name": "",
+          "market": "US",
+          "reason": "直接提锂（DLE）技术"
+        },
+        {
+          "symbol": "LAC",
+          "name": "",
+          "market": "US",
+          "reason": "美国最大黏土锂项目"
+        },
+        {
+          "symbol": "SGML",
+          "name": "",
+          "market": "US",
+          "reason": "巴西低成本硬岩锂"
+        }
+      ]
+    },
+    {
+      "id": "us-ai",
+      "name": "US AI应用",
+      "stocks": [
+        {
+          "symbol": "FTNT",
+          "name": "",
+          "market": "US",
+          "reason": "AI驱动网络安全平台"
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "market": "US",
+          "reason": "政企AI数据分析平台AIP"
+        },
+        {
+          "symbol": "TEM",
+          "name": "",
+          "market": "US",
+          "reason": "AI精准医疗数据平台"
+        },
+        {
+          "symbol": "CRM",
+          "name": "Salesforce",
+          "market": "US",
+          "reason": "企业AI代理Agentforce"
+        },
+        {
+          "symbol": "WDAY",
+          "name": "",
+          "market": "US",
+          "reason": "HR/财务SaaS+AI"
+        },
+        {
+          "symbol": "APP",
+          "name": "AppLovin",
+          "market": "US",
+          "reason": "AI广告引擎AXON"
+        },
+        {
+          "symbol": "NET",
+          "name": "Cloudflare",
+          "market": "US",
+          "reason": "边缘云，AI推理网络"
+        },
+        {
+          "symbol": "SNOW",
+          "name": "Snowflake",
+          "market": "US",
+          "reason": "数据云，AI数据底座"
+        },
+        {
+          "symbol": "MDB",
+          "name": "MongoDB",
+          "market": "US",
+          "reason": "AI应用首选文档数据库"
+        },
+        {
+          "symbol": "DDOG",
+          "name": "Datadog",
+          "market": "US",
+          "reason": "云原生监控，AI可观测"
+        }
+      ]
+    },
+    {
+      "id": "us-hejubian",
+      "name": "US 核聚变",
+      "stocks": [
+        {
+          "symbol": "ETR",
+          "name": "",
+          "market": "US",
+          "reason": "核电运营公用事业"
+        },
+        {
+          "symbol": "GHM",
+          "name": "",
+          "market": "US",
+          "reason": "真空/低温设备，聚变供应链"
+        },
+        {
+          "symbol": "BWXT",
+          "name": "",
+          "market": "US",
+          "reason": "核反应堆组件+核燃料"
+        },
+        {
+          "symbol": "SMR",
+          "name": "NuScale",
+          "market": "US",
+          "reason": "小型模块化反应堆SMR"
+        },
+        {
+          "symbol": "LTBR",
+          "name": "",
+          "market": "US",
+          "reason": "新型核燃料技术"
+        },
+        {
+          "symbol": "OKLO",
+          "name": "Oklo",
+          "market": "US",
+          "reason": "快堆+燃料回收，奥特曼背书"
+        }
+      ]
+    },
+    {
+      "id": "us-wendingbi",
+      "name": "US 稳定币",
+      "stocks": [
+        {
+          "symbol": "CRCL",
+          "name": "Circle",
+          "market": "US",
+          "reason": "USDC发行方，稳定币第一股"
+        },
+        {
+          "symbol": "WULF",
+          "name": "TeraWulf",
+          "market": "US",
+          "reason": "比特币矿企转型AI算力"
+        },
+        {
+          "symbol": "MSTR",
+          "name": "Strategy",
+          "market": "US",
+          "reason": "比特币财库策略鼻祖"
+        },
+        {
+          "symbol": "MARA",
+          "name": "",
+          "market": "US",
+          "reason": "比特币挖矿龙头"
+        },
+        {
+          "symbol": "COIN",
+          "name": "Coinbase",
+          "market": "US",
+          "reason": "合规交易所，USDC分成"
+        }
+      ]
+    },
+    {
+      "id": "us-liangzi",
+      "name": "US 量子科技",
+      "stocks": [
+        {
+          "symbol": "CYRX",
+          "name": "",
+          "market": "US",
+          "reason": "深低温冷链，量子低温物流"
+        },
+        {
+          "symbol": "IONQ",
+          "name": "IonQ",
+          "market": "US",
+          "reason": "离子阱量子计算龙头"
+        },
+        {
+          "symbol": "QUBT",
+          "name": "",
+          "market": "US",
+          "reason": "光子量子计算/优化"
+        },
+        {
+          "symbol": "LASR",
+          "name": "",
+          "market": "US",
+          "reason": "高功率激光器，量子光源"
+        },
+        {
+          "symbol": "KEYS",
+          "name": "是德科技",
+          "market": "US",
+          "reason": "量子测控/测试仪器"
+        },
+        {
+          "symbol": "RGTI",
+          "name": "",
+          "market": "US",
+          "reason": "超导量子计算"
+        },
+        {
+          "symbol": "ARQQ",
+          "name": "",
+          "market": "US",
+          "reason": "量子安全加密"
+        },
+        {
+          "symbol": "QBTS",
+          "name": "",
+          "market": "US",
+          "reason": "量子退火计算"
+        },
+        {
+          "symbol": "AMPG",
+          "name": "",
+          "market": "US",
+          "reason": "低噪声放大器，量子读出"
+        }
+      ]
+    },
+    {
+      "id": "us-metals",
+      "name": "US 贵金属",
+      "stocks": [
+        {
+          "symbol": "NEM",
+          "name": "纽蒙特",
+          "market": "US",
+          "reason": "全球最大金矿商"
+        },
+        {
+          "symbol": "B",
+          "name": "巴里克矿业",
+          "market": "US",
+          "reason": "金铜双轮，全球金矿老二"
+        },
+        {
+          "symbol": "AEM",
+          "name": "伊格尔矿业",
+          "market": "US",
+          "reason": "低成本金矿龙头"
+        },
+        {
+          "symbol": "AU",
+          "name": "盎格鲁黄金",
+          "market": "US",
+          "reason": "非洲金矿巨头"
+        },
+        {
+          "symbol": "WPM",
+          "name": "惠顿贵金属",
+          "market": "US",
+          "reason": "白银流媒体龙头"
+        },
+        {
+          "symbol": "PAAS",
+          "name": "泛美白银",
+          "market": "US",
+          "reason": "白银矿业龙头（并购MAG）"
+        },
+        {
+          "symbol": "HL",
+          "name": "赫克拉矿业",
+          "market": "US",
+          "reason": "美国最大白银矿商"
+        },
+        {
+          "symbol": "CDE",
+          "name": "科尔黛伦矿业",
+          "market": "US",
+          "reason": "金银综合矿商"
+        }
+      ]
+    },
+    {
+      "id": "us-datacenter",
+      "name": "US 数据中心",
+      "stocks": [
+        {
+          "symbol": "VRT",
+          "name": "Vertiv",
+          "market": "US",
+          "reason": "数据中心电源+液冷温控龙头"
+        },
+        {
+          "symbol": "ETN",
+          "name": "伊顿",
+          "market": "US",
+          "reason": "配电/电力管理设备"
+        },
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "market": "US",
+          "reason": "燃气轮机+电网设备"
+        },
+        {
+          "symbol": "CEG",
+          "name": "星座能源",
+          "market": "US",
+          "reason": "美国最大核电运营商，科技购电协议"
+        },
+        {
+          "symbol": "ANET",
+          "name": "Arista网络",
+          "market": "US",
+          "reason": "数据中心交换机龙头"
+        },
+        {
+          "symbol": "SMCI",
+          "name": "超微电脑",
+          "market": "US",
+          "reason": "AI服务器整机龙头"
+        },
+        {
+          "symbol": "DELL",
+          "name": "戴尔",
+          "market": "US",
+          "reason": "AI服务器+企业算力"
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta服务",
+          "market": "US",
+          "reason": "电网/数据中心基建总包"
+        },
+        {
+          "symbol": "FIX",
+          "name": "Comfort Systems",
+          "market": "US",
+          "reason": "数据中心机电安装"
+        }
+      ]
+    },
+    {
+      "id": "us-chip",
+      "name": "US 芯片",
+      "stocks": [
+        {
+          "symbol": "NVDA",
+          "name": "英伟达",
+          "market": "US",
+          "reason": "AI算力GPU绝对龙头"
+        },
+        {
+          "symbol": "AVGO",
+          "name": "博通",
+          "market": "US",
+          "reason": "定制ASIC+网络芯片"
+        },
+        {
+          "symbol": "MRVL",
+          "name": "Marvell",
+          "market": "US",
+          "reason": "定制硅+光互连DSP"
+        },
+        {
+          "symbol": "AMD",
+          "name": "AMD",
+          "market": "US",
+          "reason": "GPU第二供+服务器CPU"
+        },
+        {
+          "symbol": "INTC",
+          "name": "英特尔",
+          "market": "US",
+          "reason": "x86巨头，代工转型"
+        },
+        {
+          "symbol": "ARM",
+          "name": "Arm",
+          "market": "US",
+          "reason": "CPU架构授权，端侧到服务器"
+        },
+        {
+          "symbol": "QCOM",
+          "name": "高通",
+          "market": "US",
+          "reason": "手机SoC+端侧AI"
+        },
+        {
+          "symbol": "TSM",
+          "name": "台积电",
+          "market": "US",
+          "reason": "先进制程代工垄断"
+        }
+      ]
+    },
+    {
+      "id": "us-neocloud",
+      "name": "US 新云厂商",
+      "stocks": [
+        {
+          "symbol": "CRWV",
+          "name": "CoreWeave",
+          "market": "US",
+          "reason": "GPU云龙头，英伟达嫡系，OpenAI/微软大单"
+        },
+        {
+          "symbol": "NBIS",
+          "name": "Nebius",
+          "market": "US",
+          "reason": "欧洲AI云，微软百亿美元级大单"
+        },
+        {
+          "symbol": "IREN",
+          "name": "IREN",
+          "market": "US",
+          "reason": "矿企转型AI云，微软大单"
+        },
+        {
+          "symbol": "CORZ",
+          "name": "Core Scientific",
+          "market": "US",
+          "reason": "矿企转型AI托管，曾拒CoreWeave收购"
+        },
+        {
+          "symbol": "APLD",
+          "name": "Applied Digital",
+          "market": "US",
+          "reason": "AI数据中心托管/云"
+        },
+        {
+          "symbol": "WYFI",
+          "name": "WhiteFiber",
+          "market": "US",
+          "reason": "2025新股，光纤网络+GPU云"
+        },
+        {
+          "symbol": "CIFR",
+          "name": "Cipher Digital",
+          "market": "US",
+          "reason": "矿企转型AI算力托管"
+        },
+        {
+          "symbol": "HUT",
+          "name": "Hut 8",
+          "market": "US",
+          "reason": "矿企转型HPC/AI云"
+        }
+      ]
+    }
+  ]
+}
