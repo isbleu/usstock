@@ -48,6 +48,18 @@ const STATE_LABEL = {
   CLOSED: "休市", PREPRE: "夜盘", UNKNOWN: "未知",
 };
 
+/* current（当前时段）口径下，涨跌幅前的时段标签。
+   CLOSED 时 current 口径实际取盘后值，标「盘后」而非「休市」。 */
+const METRIC_SESSION_LABEL = {
+  PRE: "盘前", REGULAR: "盘中", POST: "盘后", POSTPOST: "盘后",
+  CLOSED: "盘后", PREPRE: "夜盘",
+};
+function metricTag(ms) {
+  if (state.metric !== "current") return "";
+  const label = METRIC_SESSION_LABEL[(ms || "").toUpperCase()];
+  return label ? `<span class="avg-session">${label}</span>` : "";
+}
+
 /* ---------- 状态栏 ---------- */
 function renderStatusbar(data) {
   const ms = (data.market_state || "UNKNOWN").toUpperCase();
@@ -90,7 +102,7 @@ function renderOverview(boards) {
     card.style.setProperty("--tint", tintFor(b.current_avg));
     card.innerHTML = `
       <div class="board-name">${b.name}</div>
-      <div class="avg ${cls(b.current_avg)}">${pct(b.current_avg)}</div>
+      <div class="avg ${cls(b.current_avg)}">${metricTag((state.summary || {}).market_state)}${pct(b.current_avg)}</div>
       <div class="meta">
         <span class="up-text">涨 ${b.up}</span> ·
         <span class="down-text">跌 ${b.down}</span> · 平 ${b.flat}
@@ -137,7 +149,7 @@ function currentPeriod(ms) {
   return null; // 休市不高亮
 }
 
-// 夜盘时段 post 通道承载雪球 Blue Ocean 夜盘数据，标签随之切换
+// 夜盘时段 post 通道承载 Yahoo websocket 夜盘 tick（无 tick 时回落盘后终值），标签随之切换
 function postLabel(ms) {
   ms = ms || ((state.summary || {}).market_state || "");
   return ms.toUpperCase() === "PREPRE" ? "夜盘" : "盘后";
@@ -154,6 +166,9 @@ function renderDetailTable(data) {
   });
   const tbody = $("#detail-table tbody");
   tbody.innerHTML = "";
+  // 夜盘时段无 tick 的行（post_session="post"）显示的是盘后终值，加 * 标注
+  const isNight = (data.market_state || "").toUpperCase() === "PREPRE";
+  let hasFallback = false;
   for (const s of data.stocks) {
     const tr = document.createElement("tr");
     if (s.unsupported || s.ok === false) {
@@ -163,8 +178,10 @@ function renderDetailTable(data) {
         <td class="col-reason">${s.reason || ""}</td>
         <td colspan="6">${s.unsupported ? "数据不可用（非同花顺外代码）" : "暂无数据"}</td>`;
     } else {
+      const fallback = isNight && s.post_session !== "night" && s.post_change_percent != null;
+      if (fallback) hasFallback = true;
       const cell = (p, v, isPct) =>
-        `<td class="${p === period ? "current " : ""}${isPct ? cls(v) : ""}">${isPct ? pct(v) : price(v)}</td>`;
+        `<td class="${p === period ? "current " : ""}${isPct ? cls(v) : ""}">${isPct ? pct(v) : price(v)}${fallback && p === "post" && v != null ? "*" : ""}</td>`;
       tr.innerHTML = `
         <td class="col-name">${s.name || s.symbol}<span class="sym">${s.symbol}</span></td>
         <td class="col-reason">${s.reason || ""}</td>
@@ -177,6 +194,7 @@ function renderDetailTable(data) {
     }
     tbody.appendChild(tr);
   }
+  $("#detail-note").classList.toggle("hidden", !hasFallback);
 }
 
 $("#detail-close").addEventListener("click", () => {
@@ -241,12 +259,13 @@ document.addEventListener("click", (e) => {
 
 /* ---------- 大字版（导出长图同款两行卡片排版） ---------- */
 function sessionNote(ms, s) {
-  // 与导出长图一致：PRE 显示盘前、POST/CLOSED 显示盘后、PREPRE 显示夜盘、REGULAR 不显示
+  // 与导出长图一致：PRE 显示盘前、POST/CLOSED 显示盘后、REGULAR 不显示；
+  // PREPRE（夜盘）有实时 tick 显示夜盘，无 tick 回落盘后终值并标注「盘后」
   ms = (ms || "").toUpperCase();
   if (ms === "PRE" && s.pre_change_percent != null)
     return ["盘前 ", s.pre_change_percent];
   if (ms === "PREPRE" && s.post_change_percent != null)
-    return ["夜盘 ", s.post_change_percent];
+    return [s.post_session === "night" ? "夜盘 " : "盘后 ", s.post_change_percent];
   if ((ms === "POST" || ms === "POSTPOST" || ms === "CLOSED") && s.post_change_percent != null)
     return ["盘后 ", s.post_change_percent];
   return null;
@@ -321,7 +340,7 @@ function renderBigView(data) {
       <div class="big-board-head" style="--head-accent:${accent}">
         <span class="big-board-name">${b.name}</span>
         <span class="big-board-meta">涨 ${b.up} · 跌 ${b.down} · 平 ${b.flat}${b.unsupported_count ? ` · ${b.unsupported_count} 只无数据` : ""}</span>
-        <span class="big-board-avg ${cls(b.current_avg)}">${pct(b.current_avg)}</span>
+        <span class="big-board-avg ${cls(b.current_avg)}">${metricTag(data.market_state)}${pct(b.current_avg)}</span>
       </div>
       ${stocksHtml}`;
     el.appendChild(board);

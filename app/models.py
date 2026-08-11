@@ -20,6 +20,9 @@ class Quote:
     pre_change_percent: Optional[float] = None
     post_price: Optional[float] = None
     post_change_percent: Optional[float] = None
+    # post_* 值的来源时段："night"=夜盘 websocket 实时 tick；"post"=盘后
+    # （含夜盘时段无 tick 时用盘后终值兜底）；None=非夜盘时段的普通快照
+    post_session: Optional[str] = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -30,8 +33,8 @@ class Quote:
         state = (self.market_state or "").upper()
         if state == "PRE" and self.pre_change_percent is not None:
             return self.pre_change_percent
-        # PREPRE（夜盘/隔夜时段）post 字段只承载 Yahoo websocket 实时推送
-        # （无推送=无成交，字段置空显示 --，不用陈旧值冒充），口径=夜盘涨跌幅（基准=盘中收盘价）
+        # PREPRE（夜盘/隔夜时段）post 字段优先承载 Yahoo websocket 实时推送；
+        # 无 tick 时回落盘后终值（post_session="post"，UI 标注「盘后」而非「夜盘」）
         if state in ("POST", "POSTPOST", "CLOSED", "PREPRE") and self.post_change_percent is not None:
             return self.post_change_percent
         return self.regular_change_percent

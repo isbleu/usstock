@@ -76,6 +76,7 @@ def _on_tick(symbol: str, tick: dict) -> None:
     else:  # POST / PREPRE
         q.post_price = tick["price"]
         q.post_change_percent = tick["change_percent"]
+        q.post_session = "night" if state == "PREPRE" else "post"
     events.broadcast("tick")
 
 

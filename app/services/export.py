@@ -48,52 +48,65 @@ STATE_LABEL = {
 }
 
 # ---------- 字体（可回退查找列表，找不到中文字体时告警） ----------
-_REGULAR_CANDIDATES = [
+# 每项可以是 path: str，或 (path: str, index: int) 元组（用于 .ttc 集合）
+_REGULAR_CANDIDATES: list[tuple[str, int] | str] = [
+    ("/System/Library/Fonts/Hiragino Sans GB.ttc", 0),   # W3，与 macOS 网页字体一致
+    "/System/Library/Fonts/PingFang.ttc",
+    "/System/Library/Fonts/STHeiti Medium.ttc",
+    "/System/Library/Fonts/STHeiti Light.ttc",
+    "/System/Library/Fonts/Supplemental/Songti.ttc",
     "C:/Windows/Fonts/msyh.ttc",
     "C:/Windows/Fonts/simhei.ttf",
     "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
     "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc",
     "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
     "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
-    "/System/Library/Fonts/PingFang.ttc",
 ]
-_BOLD_CANDIDATES = [
+_BOLD_CANDIDATES: list[tuple[str, int] | str] = [
+    ("/System/Library/Fonts/Hiragino Sans GB.ttc", 2),   # W6（粗体）
+    "/System/Library/Fonts/PingFang.ttc",
+    "/System/Library/Fonts/STHeiti Medium.ttc",
+    "/System/Library/Fonts/STHeiti Light.ttc",
+    "/System/Library/Fonts/Supplemental/Songti.ttc",
     "C:/Windows/Fonts/msyhbd.ttc",
     "C:/Windows/Fonts/simhei.ttf",
     "/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc",
     "/usr/share/fonts/noto-cjk/NotoSansCJK-Bold.ttc",
     "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
     "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
-    "/System/Library/Fonts/PingFang.ttc",
 ]
 
 
-def _find_font_path(candidates: list[str]) -> Optional[str]:
-    for p in candidates:
-        if Path(p).is_file():
-            return p
-    return None
+def _find_font(candidates: list[tuple[str, int] | str]) -> tuple[Optional[str], int]:
+    for item in candidates:
+        path, index = (item, 0) if isinstance(item, str) else item
+        if Path(path).is_file():
+            return path, index
+    return None, 0
 
 
 class _Fonts:
     """惰性加载的中文字体族；找不到中文字体时回退 Pillow 默认字体并告警。"""
 
     def __init__(self) -> None:
-        regular = _find_font_path(_REGULAR_CANDIDATES)
-        bold = _find_font_path(_BOLD_CANDIDATES) or regular
-        if regular is None:
+        regular_path, regular_idx = _find_font(_REGULAR_CANDIDATES)
+        bold_path, bold_idx = _find_font(_BOLD_CANDIDATES)
+        if bold_path is None:
+            bold_path, bold_idx = regular_path, regular_idx
+        if regular_path is None:
             logger.warning("未找到中文字体，导出长图的中文可能显示为方块；"
                            "请安装微软雅黑/黑体/Noto Sans CJK/文泉驿之一")
         else:
-            logger.info("导出长图字体：regular=%s bold=%s", regular, bold)
-        self._regular = regular
-        self._bold = bold
+            logger.info("导出长图字体：regular=%s[%s] bold=%s[%s]",
+                        regular_path, regular_idx, bold_path, bold_idx)
+        self._regular = (regular_path, regular_idx)
+        self._bold = (bold_path, bold_idx)
 
     def get(self, size: int, bold: bool = False) -> ImageFont.FreeTypeFont:
-        path = self._bold if bold else self._regular
+        path, index = self._bold if bold else self._regular
         if path is None:
             return ImageFont.load_default()
-        return ImageFont.truetype(path, size)
+        return ImageFont.truetype(path, size, index=index)
 
 
 # ---------- 格式化 ----------
@@ -117,13 +130,14 @@ def _color(pal: dict, v: Optional[float]) -> str:
 
 def _session_note(market_state: str, row: dict) -> Optional[tuple[str, float]]:
     """第二行右侧的时段标注：PRE 显示盘前涨幅，POST/CLOSED 显示盘后涨幅，
-    PREPRE 显示夜盘涨幅（此时段 post 通道为 Yahoo websocket 夜盘 tick 实时值），
+    PREPRE 有实时 tick 显示夜盘涨幅、无 tick 回落盘后终值并标注「盘后」，
     REGULAR 不显示。"""
     ms = (market_state or "").upper()
     if ms == "PRE" and row.get("pre") is not None:
         return ("盘前 ", row["pre"])
     if ms == "PREPRE" and row.get("post") is not None:
-        return ("夜盘 ", row["post"])
+        return ("夜盘 " if row.get("post_session") == "night" else "盘后 ",
+                row["post"])
     if ms in ("POST", "POSTPOST", "CLOSED") and row.get("post") is not None:
         return ("盘后 ", row["post"])
     return None
@@ -151,6 +165,7 @@ def _build_rows(board: Board, quotes: dict[str, Quote],
                 "regular": q.regular_change_percent,
                 "pre": q.pre_change_percent,
                 "post": q.post_change_percent,
+                "post_session": q.post_session,
                 "current": q.current_change_percent,
             })
         else:

@@ -136,10 +136,11 @@ class YahooQuoteProvider(QuoteProvider):
         PRE→pre_*、REGULAR→regular_*、POST→post_*、PREPRE→post_*。
         REGULAR 时段额外校验 tick 必须比 v7 快照时间新，防止旧 tick 回退价格。
 
-        夜盘（PREPRE）特殊：无任何 HTTP 快照源（v7/v10 盘后字段 20:00 后冻结），
-        且用户明确要求宁可没有也不要陈旧值——本时段无 tick 的票**清空 post
-        字段**（UI 显示 --），不用 19:59 盘后终值冒充夜盘。其他时段无 tick
-        则保留快照值（有轮询校正）。涨幅基准=盘中收盘价，与同花顺/Yahoo 网页一致。
+        夜盘（PREPRE）特殊：无任何 HTTP 快照源（v7/v10 盘后字段 20:00 后冻结）。
+        本时段有 tick 的票 post 字段=实时夜盘价（post_session="night"，标注「夜盘」）；
+        无 tick 的票回落 v7 快照里的盘后终值（post_session="post"，标注「盘后」，
+        不冒充夜盘）。其他时段无 tick 则保留快照值（有轮询校正）。
+        涨幅基准=盘中收盘价，与同花顺/Yahoo 网页一致。
         """
         window = session_window()
         if window is None:
@@ -181,11 +182,12 @@ class YahooQuoteProvider(QuoteProvider):
                 else:  # POST / PREPRE
                     q.post_price = t["price"]
                     q.post_change_percent = t["change_percent"]
+                    q.post_session = "night" if state == "PREPRE" else "post"
                     applied = True
             elif state == "PREPRE":
-                # 夜盘无快照源：无 tick = 无成交（或流未就绪），不显示任何陈旧值
-                q.post_price = None
-                q.post_change_percent = None
+                # 夜盘无 tick：回落快照里的盘后终值（v7 盘后字段 20:00 后冻结，
+                # 即 19:59 盘后收盘价），post_session="post" 让 UI 标注「盘后」
+                q.post_session = "post"
             filled += applied
         logger.info("websocket tick 覆盖 %d/%d 只（时段 %s）",
                     filled, len(targets), state)

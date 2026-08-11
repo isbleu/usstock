@@ -143,6 +143,8 @@ main { padding: 16px 20px; max-width: 1500px; margin: 0 auto; }
   font-variant-numeric: tabular-nums;
 }
 .card .meta { color: var(--text-dim); font-size: 12px; line-height: 1.7; }
+/* current 口径时涨跌幅前的时段小标签（夜盘/盘后/盘前/盘中） */
+.avg-session { font-size: 12px; font-weight: 400; color: var(--text-dim); margin-right: 5px; }
 .card .minis {
   display: flex;
   gap: 10px;
@@ -200,9 +202,12 @@ main { padding: 16px 20px; max-width: 1500px; margin: 0 auto; }
 #detail-table th.current, #detail-table td.current { background: rgba(91, 141, 239, .10); }
 #detail-table tr:last-child td { border-bottom: none; }
 #detail-table tr.unavailable td { color: var(--text-dim); }
+.detail-note { padding: 8px 14px; color: var(--text-dim); font-size: 12px; border-top: 1px solid var(--border); }
 
 @media (max-width: 720px) {
   #statusbar { gap: 10px; font-size: 12px; }
+  /* 设置浮层：窄屏时按钮在行首，right:0 会把浮层顶出左屏外，改为左对齐 */
+  #settings-pop { left: 0; right: auto; max-width: calc(100vw - 40px); }
   #detail-table { font-size: 12px; }
   #detail-table th, #detail-table td { padding: 7px 8px; }
   .big-board-head { flex-wrap: wrap; }
