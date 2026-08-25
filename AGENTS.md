@@ -67,6 +67,7 @@ static/                index.html / app.js / style.css
 - **US 稳定币**：2026-08-08 应用户要求移除 2 只港股（2562.HK、1788.HK 国泰君安国际），现仅保留美股标的：CRCL、WULF、MSTR、MARA、COIN。至此 boards.json 已无港股标的，.HK 映射/时段处理逻辑处于休眠状态。
 - **US 商业航天**：新增 FLY（萤火虫航天，2025 年上市新股）；LUNR（Intuitive Machines，月球着陆器）从「US 量子科技」移入本板块。
 - **US 新云厂商**（新增，Neocloud/GPU 云）：CRWV（CoreWeave）、NBIS（Nebius）、IREN、CORZ（Core Scientific）、APLD、WYFI（WhiteFiber）、CIFR（Cipher Digital）、HUT（Hut 8）。
+- **US mRNA**（新增）：MRNA（莫德纳）、BNTX（BioNTech）、MRK（默沙东）、ALNY（Alnylam）。2026-08-19 Moderna与默沙东合作的个性化 mRNA 癌症疫苗 V940 获 III 期突破，开启肿瘤免疫新时代。精选 4 只高相关核心龙头（排除了纯大药企 PFE，CureVac 已于 2026-01 被 BNTX 收购退市）。
 
 注意事项：
 

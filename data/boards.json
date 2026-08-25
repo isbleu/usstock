@@ -1001,6 +1001,36 @@
           "reason": "矿企转型HPC/AI云"
         }
       ]
+    },
+    {
+      "id": "us-mrna",
+      "name": "US mRNA",
+      "stocks": [
+        {
+          "symbol": "MRNA",
+          "name": "莫德纳",
+          "market": "US",
+          "reason": "mRNA癌症疫苗龙头，V940获III期突破"
+        },
+        {
+          "symbol": "BNTX",
+          "name": "BioNTech",
+          "market": "US",
+          "reason": "mRNA双雄之一，肿瘤免疫疗法先锋"
+        },
+        {
+          "symbol": "MRK",
+          "name": "默沙东",
+          "market": "US",
+          "reason": "K药巨头，Moderna V940深度合作方"
+        },
+        {
+          "symbol": "ALNY",
+          "name": "Alnylam",
+          "market": "US",
+          "reason": "RNAi领军者，RNA递送/修饰龙头"
+        }
+      ]
     }
   ]
 }
