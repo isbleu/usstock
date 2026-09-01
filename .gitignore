@@ -10,6 +10,8 @@ __pycache__/
 .tmp/
 .tmp_*.json
 console_log.txt
+usstock_*.png
+.DS_Store
 
 # 同花顺自选股截图（个人投资偏好信息，不上传）
 screenshots/

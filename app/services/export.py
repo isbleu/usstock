@@ -47,6 +47,13 @@ STATE_LABEL = {
     "POST": "盘后", "POSTPOST": "盘后", "CLOSED": "休市", "UNKNOWN": "未知",
 }
 
+# current（当前时段）口径下板块均幅前的时段标签，与前端 metricTag() 一致
+# （CLOSED 时 current 口径实际取盘后值，标「盘后」而非「休市」）
+METRIC_SESSION_LABEL = {
+    "PRE": "盘前", "REGULAR": "盘中", "POST": "盘后",
+    "POSTPOST": "盘后", "CLOSED": "盘后", "PREPRE": "夜盘",
+}
+
 # ---------- 字体（可回退查找列表，找不到中文字体时告警） ----------
 # 每项可以是 path: str，或 (path: str, index: int) 元组（用于 .ttc 集合）
 _REGULAR_CANDIDATES: list[tuple[str, int] | str] = [
@@ -324,6 +331,13 @@ def render_png(metric: str = "regular", theme: str = "dark") -> bytes:
                   fill=pal["TEXT"])
         avg_txt = _pct(avg_v)
         avg_w = _text_w(draw, avg_txt, f_avg)
+        # current 口径：均幅前加时段小标签（夜盘/盘后/盘前/盘中），与前端一致
+        sess = METRIC_SESSION_LABEL.get(market_state.upper()) \
+            if metric == "current" else None
+        if sess:
+            sess_w = _text_w(draw, sess, f_meta)
+            draw.text((inner_r - avg_w - 8 - sess_w, cy + 16), sess,
+                      font=f_meta, fill=pal["DIM"])
         draw.text((inner_r - avg_w, cy + 4), avg_txt, font=f_avg,
                   fill=_color(pal, avg_v))
         meta = (f"涨 {agg['up']} · 跌 {agg['down']} · 平 {agg['flat']}"

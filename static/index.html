@@ -44,21 +44,23 @@
         <h2 id="detail-title"></h2>
         <button id="detail-close">收起 ×</button>
       </div>
-      <table id="detail-table">
-        <thead>
-          <tr>
-            <th class="col-name">名称 / 代码</th>
-            <th class="col-reason">入选理由</th>
-            <th>最新价</th>
-            <th data-period="regular">涨跌幅</th>
-            <th data-period="pre">盘前价</th>
-            <th data-period="pre">盘前%</th>
-            <th data-period="post">盘后价</th>
-            <th data-period="post">盘后%</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+      <div class="table-scroll">
+        <table id="detail-table">
+          <thead>
+            <tr>
+              <th class="col-name">名称 / 代码</th>
+              <th class="col-reason">入选理由</th>
+              <th>最新价</th>
+              <th data-period="regular">涨跌幅</th>
+              <th data-period="pre">盘前价</th>
+              <th data-period="pre">盘前%</th>
+              <th data-period="post">盘后价</th>
+              <th data-period="post">盘后%</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
       <div id="detail-note" class="detail-note hidden">* 夜盘时段暂无成交推送，显示盘后终值</div>
     </section>
   </main>
